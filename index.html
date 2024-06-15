@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+</head>
+<style>
+  #snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+  }
+  
+  #snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  
+  @-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+</style>
+<body>
+  <nav class="py-2 bg-body-tertiary border-bottom">
+    <div class="container d-flex flex-wrap">
+      <ul class="nav me-auto">
+        <li class="nav-item"><a href="index.html" class="nav-link link-body-emphasis px-2 active"
+            aria-current="page">Home</a></li>
+        <li class="nav-item"><a href="about.html" class="nav-link link-body-emphasis px-2">About</a></li>
+      </ul>
+      <ul class="nav">
+        <li class="nav-item">
+          <div class="col-md-3 text-end">
+            <input type="checkbox" class="checkbox" id="checkbox">
+            <label for="checkbox" class="checkbox-label">
+              <i class="fas fa-moon"></i>
+              <i class="fas fa-sun"></i>
+              <span class="ball"></span>
+            </label>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <h1>Enter the text to analyze below</h1><br>
+  <div class="mb-3">
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
+  </div>
+  <div>
+    <button type="button" class="btn btn-outline-secondary" id="upper" onclick="myFunction('upper')">Upper Case</button>
+    <button type="button" class="btn btn-outline-secondary" id="lower" onclick="myFunction('lower')">Lower Case</button>
+    <button type="button" class="btn btn-outline-secondary" id="clear" onclick="myFunction('clear')">Clear Area</button>
+    <button type="button" class="btn btn-outline-secondary" id="download" onclick="myFunction('download')">Download Document</button>
+    <button type="button" class="btn btn-outline-secondary" id="print" onclick="myFunction('print')">Print</button>
+    <button type="button" class="btn btn-outline-secondary" id="copy" onclick="myFunction('copy')">Copy Text</button>
+  </div><br>
+  <h1>Your Text Summary</h1>
+  <p>Word Count: <span id="wordCount"></span></p>
+  <p>Character Count: <span id="charCount"></span></p>
+  <h1>Preview</h1>
+  <div id="preview"></div>
+
+  <div id="snackbar"></div>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
